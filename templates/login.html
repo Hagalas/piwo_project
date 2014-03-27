@@ -1,0 +1,25 @@
+
+    <div class="hero-unit">
+    <h2>Platforma Informacyjna Wspólnego Obiegu</h2>
+
+        <div class="container">
+    	    <form class="form-signin span4" id="login_form" method="post" action="/login/">
+    	        <h2 class="form-signin-heading">Zaloguj się</h2>
+    	        {% csrf_token %}
+
+    	        {% if bad_details %}
+    	        <p><strong>Twój login lub hasło jest nieprawidłowe.</strong></p>
+    	        {% elif disabled_account %}
+    	        <p><strong>Twoje konto na PIWO jest aktualnie zablokowane.</strong></p>
+    	        {% endif %}
+
+    	        Login: <input type="text" class="input-block-level" placeholder="Username" name="username" value="" size="50" />
+    	        <br />
+    	        Hasło: <input type="password" class="input-block-level" placeholder="Password" name="password" value="" size="50" />
+    	        <br />
+    	        <button class="btn btn-primary" type="submit">Zaloguj</button>
+    	    </form>
+
+    	    </div>
+    	    <!-- /container -->
+    	</div>

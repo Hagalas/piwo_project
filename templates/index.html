@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+
+{% load static %}
+
+{% block body %}
+    <div class="hero-unit">
+    <div class="container-fluid">
+        <h2>Platforma Informacyjna Wspólnego Obiegu</h2>
+        <form id="wpis_form" method="post" action="">
+        {% csrf_token %}
+            {{ form.as_table }}<br>
+            <button class="btn btn-primary" type="submit" name="submit">Zatwierdź</button>
+        </form>
+    </div>
+    </div>
+    <div class="hero-unit">
+    <div class="container-fluid">
+    {% if wpisy %}
+    <ul>
+
+        {% for wpis in wpisy %}
+
+        <li style="list-style-type: none;">
+            {% if wpis.autor %}
+                Autor: {{ wpis.autor }}<br>
+            {% endif %}
+            {% if wpis.autor %}
+                Przedmiot: {{ wpis.przedmiot }}<br>
+            {% endif %}
+            {% if wpis.autor %}
+                Lab: {{ wpis.lab }}<br>
+            {% endif %}
+            {% if wpis.autor %}
+                Zadanie: {{ wpis.zadanie }}<br>
+            {% endif %}
+            Treść:
+            <button class="btn btn-primary" style="margin-left:1em;" type="submit" name="submit">Kopiuj</button><br>
+            <pre><p class="comment">{{ wpis.text }}</p></pre>
+            <hr>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        Nie ma wpisów.
+    {% endif %}
+    </div>
+    </div>
+
+{% endblock %}
+<p class="comment more">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dot eiusmod tempor
+       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+       exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+      </p>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+    });
+</script>
